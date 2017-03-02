@@ -9,7 +9,8 @@
         regexp: '#server {{ targethost }}'
         replace: 'server {{ targethost }}'
         backup: yes
-      notify: reload haproxy
+  notify: reload haproxy
+
 
   handlers:
     - name: reload haproxy
