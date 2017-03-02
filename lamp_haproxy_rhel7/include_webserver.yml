@@ -9,3 +9,8 @@
         regexp: '#server {{ excludehost }}'
         replace: 'server {{ excludehost }}'
         backup: yes
+      notify: reload haproxy
+
+  handlers:
+    - name: reload haproxy
+      service: name=haproxy state=reloaded

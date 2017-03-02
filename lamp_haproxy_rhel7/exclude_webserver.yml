@@ -10,3 +10,6 @@
         replace: '#server {{ excludehost }}'
         backup: yes
 
+  handlers:
+    - name: reload haproxy
+      service: name=haproxy state=reloaded
