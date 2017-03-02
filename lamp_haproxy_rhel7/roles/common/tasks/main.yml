@@ -24,6 +24,7 @@
   firewalld:
     port: 80/tcp
     permanent: true
+    immediate: true
     state: enabled
 
 
