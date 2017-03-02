@@ -4,12 +4,17 @@
 - hosts: haproxy
   tasks:
     - name: Temporary removing the host {{ targethost }} from Loadbalancer
-      replace:
-        dest: /etc/haproxy/haproxy.cfg
-        regexp: 'server {{ targethost }}'
-        replace: '#server {{ targethost }}'
-        backup: yes
+      haproxy: 'state=disabled backend=myloadbalancer host={{ targethost }} socket=/var/lib/haproxy/stats'
       notify: reload haproxy
+
+# Dirty & old way
+#    - name: Temporary removing the host {{ targethost }} from Loadbalancer
+#      replace:
+#        dest: /etc/haproxy/haproxy.cfg
+#        regexp: 'server {{ targethost }}'
+#        replace: '#server {{ targethost }}'
+#        backup: yes
+#      notify: reload haproxy
 
   handlers:
     - name: reload haproxy
