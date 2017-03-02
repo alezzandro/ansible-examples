@@ -22,7 +22,7 @@
 
 - name: Open firewall 80 port on every server
   firewalld:
-    service: http
+    port: 80/tcp
     permanent: true
     state: enabled
 
