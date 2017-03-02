@@ -10,6 +10,7 @@
     proto: tcp
     setype: http_port_t
     state: present
+  when: sestatus.rc != 0
 
 - name: Configure the haproxy cnf file with hosts
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg

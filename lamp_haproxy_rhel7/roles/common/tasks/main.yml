@@ -6,6 +6,7 @@
   with_items:
    - libselinux-python
    - libsemanage-python
+   - policycoreutils-python
 
 - name: Install ntp
   yum: name=ntp state=present
@@ -26,7 +27,6 @@
     permanent: true
     immediate: true
     state: enabled
-
 
 - name: test to see if selinux is running
   command: getenforce
