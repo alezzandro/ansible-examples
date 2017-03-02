@@ -1,0 +1,11 @@
+---
+# This playbook remove a webserver from the load balancer
+
+- hosts: haproxy
+  tasks:
+    - name: Reinserting the host {{ excludehost }} into Loadbalancer
+      replace:
+        dest: /etc/haproxy/haproxy.cfg
+        regexp: '#server {{ excludehost }}'
+        replace: 'server {{ excludehost }}'
+        backup: yes
