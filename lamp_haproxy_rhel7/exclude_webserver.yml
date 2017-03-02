@@ -3,11 +3,11 @@
 
 - hosts: haproxy
   tasks:
-    - name: Temporary removing the host {{ excludehost }} from Loadbalancer
+    - name: Temporary removing the host {{ targethost }} from Loadbalancer
       replace:
         dest: /etc/haproxy/haproxy.cfg
-        regexp: 'server {{ excludehost }}'
-        replace: '#server {{ excludehost }}'
+        regexp: 'server {{ targethost }}'
+        replace: '#server {{ targethost }}'
         backup: yes
 
   handlers:

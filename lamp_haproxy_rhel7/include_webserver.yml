@@ -3,11 +3,11 @@
 
 - hosts: haproxy
   tasks:
-    - name: Reinserting the host {{ excludehost }} into Loadbalancer
+    - name: Reinserting the host {{ targethost }} into Loadbalancer
       replace:
         dest: /etc/haproxy/haproxy.cfg
-        regexp: '#server {{ excludehost }}'
-        replace: 'server {{ excludehost }}'
+        regexp: '#server {{ targethost }}'
+        replace: 'server {{ targethost }}'
         backup: yes
       notify: reload haproxy
 
