@@ -5,10 +5,10 @@
 mode: http
 
 # Port on which HAProxy should listen
-listenport: 8888
+listenport: 80
 
 # A name for the proxy daemon, this wil be the suffix in the logs.
-daemonname: myapplb
+daemonname: myloadbalancer
 
 # Balancing Algorithm. Available options:
 # roundrobin, source, leastconn, source, uri
