@@ -11,7 +11,7 @@
   - name: disable the server in haproxy
     haproxy: 'state=disabled backend=myapplb host={{ inventory_hostname }} socket=/var/lib/haproxy/stats'
     delegate_to: "{{ item }}"
-    with_items: lbservers
+    with_items: haproxy
 
   tasks:
   - name: Update the system packages
@@ -27,4 +27,4 @@
   - name: enable the server in haproxy
     haproxy: 'state=enabled backend=myapplb host={{ inventory_hostname }} socket=/var/lib/haproxy/stats'
     delegate_to: "{{ item }}"
-    with_items: lbservers
+    with_items: haproxy
