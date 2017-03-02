@@ -1,8 +1,8 @@
 ---
 # This playbook execute a custom command on the webserver
 
-- hosts: {{ targethost }}
+- hosts: "{{ targethost }}"
   tasks:
     - name: Executing custom command on {{ targethost }}
-      shell: {{ customcommand  }}
+      shell: "{{ customcommand  }}"
 
