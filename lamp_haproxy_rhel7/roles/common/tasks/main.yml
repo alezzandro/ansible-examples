@@ -20,7 +20,7 @@
 
 - name: Open firewall 5666 port on every server
   firewalld:
-    port: 5666
+    port: 5666/tcp
     permanent: true
     immediate: true
     state: enabled
