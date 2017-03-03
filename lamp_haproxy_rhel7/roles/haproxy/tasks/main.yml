@@ -10,6 +10,7 @@
     proto: tcp
     setype: http_port_t
     state: present
+    immediate: true
   when: sestatus.rc == 0
 
 - name: Configure the haproxy cnf file with hosts
