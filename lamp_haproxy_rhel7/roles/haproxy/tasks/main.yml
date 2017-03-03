@@ -10,8 +10,14 @@
     proto: tcp
     setype: http_port_t
     state: present
-    immediate: true
   when: sestatus.rc == 0
+
+- name: Open firewall 1936 port on every server
+  firewalld:
+    port: 1936
+    permanent: true
+    immediate: true
+    state: enabled
 
 - name: Configure the haproxy cnf file with hosts
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg

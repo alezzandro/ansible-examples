@@ -28,3 +28,11 @@
   tags:
   - lb
 
+# Configure nagios monitoring server.
+- hosts: nagios
+
+  roles:
+  - nagios
+
+  tags:
+  - nagios

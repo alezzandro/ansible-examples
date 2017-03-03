@@ -8,6 +8,23 @@
    - libsemanage-python
    - policycoreutils-python
 
+- name: install some useful nagios plugins
+  yum: name={{ item }} state=present
+  with_items:
+   - nagios-nrpe
+   - nagios-plugins-swap
+   - nagios-plugins-users
+   - nagios-plugins-procs
+   - nagios-plugins-load
+   - nagios-plugins-disk
+
+- name: Open firewall 5666 port on every server
+  firewalld:
+    port: 5666
+    permanent: true
+    immediate: true
+    state: enabled
+
 - name: Install ntp
   yum: name=ntp state=present
   tags: ntp
