@@ -21,9 +21,9 @@
   copy: src=nagios.cfg dest=/etc/nagios/nagios.cfg
   notify: restart nagios
 
-- name: configure localhost monitoring
-  copy: src=localhost.cfg dest=/etc/nagios/objects/localhost.cfg
-  notify: restart nagios
+#- name: configure localhost monitoring
+#  copy: src=localhost.cfg dest=/etc/nagios/objects/localhost.cfg
+#  notify: restart nagios
 
 - name: configure nagios services
   copy: src=ansible-managed-services.cfg dest=/etc/nagios/
