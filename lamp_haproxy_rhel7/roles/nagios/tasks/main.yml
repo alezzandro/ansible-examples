@@ -2,7 +2,7 @@
 # This will install nagios
 
 - name: copy selinux module for nagios 4
-  copy: src:nagios-module.pp dest=/tmp/nagios-module.pp
+  copy: src=nagios-module.pp dest=/tmp/nagios-module.pp
 
 - name: install selinux module for nagios 4
   shell: semodule -i /tmp/nagios-module.pp
