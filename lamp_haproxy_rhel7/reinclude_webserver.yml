@@ -1,5 +1,5 @@
 ---
-# This playbook remove a webserver from the load balancer
+# This playbook re-add a webserver to the load balancer
 
 - hosts: haproxy
   tasks:
