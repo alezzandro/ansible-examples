@@ -1,6 +1,18 @@
 ---
 # This will install nagios
 
+- name: copy selinux module for nagios 4
+  copy: src:nagios-module.pp dest=/tmp/nagios-module.pp
+
+- name: install selinux module for nagios 4
+  shell: semodule -i /tmp/nagios-module.pp
+
+- name: setting up sebool option for correctly starting nagios daemon
+  seboolean:
+    name: daemons_enable_cluster_mode
+    state: yes
+    persistent: yes
+
 - name: install nagios
   yum: pkg={{ item }} state=present
   with_items:
