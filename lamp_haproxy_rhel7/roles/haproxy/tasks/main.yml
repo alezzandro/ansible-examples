@@ -12,9 +12,9 @@
     state: present
   when: sestatus.rc == 0
 
-- name: Open firewall 1936 port on every server
+- name: Open firewall 1936 on haproxy server
   firewalld:
-    port: 1936
+    port: 1936/tcp
     permanent: true
     immediate: true
     state: enabled
