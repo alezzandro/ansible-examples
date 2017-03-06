@@ -18,12 +18,16 @@
    - nagios-plugins-load
    - nagios-plugins-disk
 
-- name: Open firewall 5666 port on every server
+- name: Open nagios 5666 port on every server
   firewalld:
     port: 5666/tcp
     permanent: true
     immediate: true
     state: enabled
+
+- name: Start the nagios-nrpe service
+  service: name=nrpe state=started enabled=yes
+  tags: nagios
 
 - name: Install ntp
   yum: name=ntp state=present
