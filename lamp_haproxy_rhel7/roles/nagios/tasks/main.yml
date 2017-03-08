@@ -50,3 +50,6 @@
 
 - name: start nagios
   service: name=nagios state=started enabled=yes
+
+- name: start httpd
+  service: name=httpd state=started enabled=yes
