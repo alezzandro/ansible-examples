@@ -1,19 +1,16 @@
-LAMP Stack + HAProxy: Example Playbooks
+HAProxy + Apache + Nagios: Example Playbooks
 -----------------------------------------------------------------------------
 
-- Requires Ansible 1.2
-- Expects CentOS/RHEL 6 hosts
+- Expects CentOS/RHEL 7 hosts
 
-This example is an extension of the simple LAMP deployment. Here we'll install
+This example is an extension of the original RHEL6 LAMP deployment. Here we'll install
 and configure a web server with an HAProxy load balancer in front, and deploy
-an application to the web servers. This set of playbooks also have the
+a simple webpage to the web servers. This set of playbooks also have the
 capability to dynamically add and remove web server nodes from the deployment.
 It also includes examples to do a rolling update of a stack without affecting
 the service.
 
-(To use this demonstration with Amazon Web Services, please use the "aws" sub-directory.)
-
-You can also optionally configure a Nagios monitoring node.
+This playbook will also configure a Nagios monitoring node.
 
 ### Initial Site Setup
 
@@ -23,13 +20,10 @@ inventory file, grouped by their purpose:
 		[webservers]
 		webserver1
 		webserver2
-		
-		[dbservers]
-		dbserver
-		
+
 		[lbservers]
 		lbserver
-		
+
 		[monitoring]
 		nagios
 

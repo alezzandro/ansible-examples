@@ -29,7 +29,7 @@
   - lb
 
 # Configure nagios monitoring server.
-- hosts: nagios
+- hosts: monitoring
 
   roles:
   - nagios

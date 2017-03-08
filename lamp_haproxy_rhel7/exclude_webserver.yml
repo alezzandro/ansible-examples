@@ -1,20 +1,8 @@
 ---
 # This playbook remove a webserver from the load balancer
 
-- hosts: haproxy
+- hosts: lbservers
   tasks:
     - name: Temporary removing the host {{ targethost }} from Loadbalancer
       haproxy: 'state=disabled backend=myloadbalancer host={{ targethost }} socket=/var/lib/haproxy/stats'
 
-# Dirty & old way
-#    - name: Temporary removing the host {{ targethost }} from Loadbalancer
-#      replace:
-#        dest: /etc/haproxy/haproxy.cfg
-#        regexp: 'server {{ targethost }}'
-#        replace: '#server {{ targethost }}'
-#        backup: yes
-#      notify: reload haproxy
-#
-#  handlers:
-#    - name: reload haproxy
-#      service: name=haproxy state=reloaded

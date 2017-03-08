@@ -1,7 +1,7 @@
 ---
 # This playbook remove a webserver from nagios monitoring
 
-- hosts: nagios
+- hosts: monitoring
   tasks:
     - name: disable nagios alerts for host {{ targethost }}
       nagios: 'action=disable_alerts host={{ targethost }} services=webserver'

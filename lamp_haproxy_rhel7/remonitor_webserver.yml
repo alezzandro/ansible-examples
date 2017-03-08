@@ -1,7 +1,7 @@
 ---
 # This playbook re-add a webserver to nagios monitoring
 
-- hosts: nagios
+- hosts: monitoring
   tasks:
     - name: re-enable nagios alerts for {{ targethost }}
       nagios: 'action=enable_alerts host={{ targethost }} services=webserver'

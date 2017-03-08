@@ -6,15 +6,3 @@
     - name: Reinserting the host {{ targethost }} into Loadbalancer
       haproxy: 'state=enabled backend=myloadbalancer host={{ targethost }} socket=/var/lib/haproxy/stats'
 
-# Dirty & old way
-#    - name: Reinserting the host {{ targethost }} into Loadbalancer
-#      replace:
-#        dest: /etc/haproxy/haproxy.cfg
-#        regexp: '#server {{ targethost }}'
-#        replace: 'server {{ targethost }}'
-#        backup: yes
-#      notify: reload haproxy
-#
-#  handlers:
-#    - name: reload haproxy
-#      service: name=haproxy state=reloaded
